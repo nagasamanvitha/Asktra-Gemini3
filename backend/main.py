@@ -418,6 +418,18 @@ def get_dataset():
     return get_dataset_for_api()
 
 
+@app.get("/")
+def root():
+    """Root route so deployment URL (e.g. Vercel) returns 200 instead of 404."""
+    return {
+        "service": "asktra",
+        "status": "ok",
+        "docs": "/docs",
+        "health": "/health",
+        "endpoints": ["POST /ask", "POST /ask-stream", "POST /emit-docs", "POST /emit-reconciliation-patch", "POST /reconciliation-bundle", "GET /dataset", "GET /health"],
+    }
+
+
 @app.get("/health")
 def health():
     return {"status": "ok", "service": "asktra"}
