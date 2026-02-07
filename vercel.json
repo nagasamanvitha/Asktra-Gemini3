@@ -1,7 +1,7 @@
 {
-  "framework": "fastapi",
   "buildCommand": "npm run build",
   "installCommand": "npm install",
+  "outputDirectory": "frontend/dist",
   "functions": {
     "api/index.py": {
       "memory": 1024,
